@@ -1,0 +1,298 @@
+/* ============================================================
+   عظمة وجلال مصر — Bootstrap theme overrides
+   ============================================================ */
+
+:root {
+  --color-bg: #0e1726;
+  --color-bg-alt: #131e30;
+  --color-text: #f4ead5;
+  --color-text-muted: rgba(244, 234, 213, 0.78);
+  --color-text-soft: rgba(244, 234, 213, 0.6);
+  --color-primary: #c9a14a;
+  --color-primary-hover: #d9b35e;
+  --color-border: rgba(201, 161, 74, 0.25);
+
+  --font-arabic-display: 'Amiri', 'Tajawal', serif;
+  --font-arabic-body: 'Tajawal', sans-serif;
+  --font-en-display: 'Cormorant Garamond', serif;
+  --font-en-body: 'Inter', sans-serif;
+
+  --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html[lang="ar"] {
+  --font-display: var(--font-arabic-display);
+  --font-body: var(--font-arabic-body);
+}
+html[lang="en"] {
+  --font-display: var(--font-en-display);
+  --font-body: var(--font-en-body);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-bg);
+}
+
+/* Bootstrap utility extension: extra padding */
+.py-6 { padding-top: 6rem; padding-bottom: 6rem; }
+
+/* ---------- Navbar ---------- */
+#site-nav {
+  background-color: transparent;
+  transition: background-color var(--transition), backdrop-filter var(--transition),
+    box-shadow var(--transition), border-color var(--transition);
+  border-bottom: 1px solid transparent;
+}
+
+#site-nav.scrolled {
+  background-color: rgba(14, 23, 38, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom-color: var(--color-border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.brand-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  color: var(--color-primary) !important;
+}
+
+.navbar-dark .nav-link {
+  color: var(--color-text-muted) !important;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  position: relative;
+  transition: color var(--transition);
+}
+
+.navbar-dark .nav-link:hover,
+.navbar-dark .nav-link:focus {
+  color: var(--color-primary) !important;
+}
+
+.lang-btn {
+  font-family: var(--font-en-body);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  --bs-btn-color: var(--color-primary);
+  --bs-btn-border-color: var(--color-border);
+  --bs-btn-hover-color: var(--color-bg);
+  --bs-btn-hover-bg: var(--color-primary);
+  --bs-btn-hover-border-color: var(--color-primary);
+}
+
+/* Bootstrap warning button → custom gold */
+.btn-warning {
+  --bs-btn-color: var(--color-bg);
+  --bs-btn-bg: var(--color-primary);
+  --bs-btn-border-color: var(--color-primary);
+  --bs-btn-hover-color: var(--color-bg);
+  --bs-btn-hover-bg: var(--color-primary-hover);
+  --bs-btn-hover-border-color: var(--color-primary-hover);
+  --bs-btn-active-bg: var(--color-primary-hover);
+  --bs-btn-active-border-color: var(--color-primary-hover);
+  font-family: var(--font-body);
+  letter-spacing: 0.08em;
+  box-shadow: 0 6px 20px rgba(201, 161, 74, 0.3);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(201, 161, 74, 0.5);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/hero.png');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.05);
+  z-index: 0;
+  will-change: transform, opacity;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    var(--color-bg) 0%,
+    rgba(14, 23, 38, 0.4) 50%,
+    rgba(14, 23, 38, 0.25) 100%
+  );
+  z-index: 1;
+}
+
+.hero .container { z-index: 2; }
+
+.hero-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3rem, 9vw, 8rem);
+  line-height: 1.05;
+  text-shadow: 0 6px 30px rgba(0, 0, 0, 0.6);
+  color: var(--color-text);
+}
+html[lang="en"] .hero-title { letter-spacing: -0.02em; }
+
+.hero-subtitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.4vw, 1.8rem);
+  max-width: 720px;
+  color: var(--color-text-muted);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  text-decoration: none;
+  animation: bounceArrow 2s ease-in-out infinite;
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translate(-50%, 0); opacity: 0.6; }
+  50% { transform: translate(-50%, 10px); opacity: 1; }
+}
+
+/* ---------- Content sections ---------- */
+.content-section { background-color: var(--color-bg); overflow: hidden; }
+.content-section.section-alt { background-color: var(--color-bg-alt); }
+
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+
+.section-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+.accent-line {
+  width: 64px;
+  height: 3px;
+  background-color: var(--color-primary);
+}
+
+.section-image {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.section-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-primary);
+  mix-blend-mode: overlay;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.section-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.section-image:hover img { transform: scale(1.05); }
+
+/* ---------- Gallery ---------- */
+.gallery-card {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(14, 23, 38, 0.5), transparent);
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.gallery-card:hover::after { opacity: 1; }
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.gallery-card:hover img { transform: scale(1.08); }
+
+/* ---------- Footer ---------- */
+.site-footer {
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.site-footer p {
+  font-family: var(--font-display);
+  color: var(--color-text-soft);
+  letter-spacing: 0.04em;
+  font-size: 1.1rem;
+}
+
+/* ---------- Reveal-on-scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* Spacing tweak so anchored sections aren't hidden behind the navbar */
+section[id] { scroll-margin-top: 80px; }
