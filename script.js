@@ -27,6 +27,10 @@ const translations = {
       "في ابتسامة فلاح، وإصرار عالم، وعزيمة رياضي. أعظم ثروات مصر هي شعبها الأصيل، صانع المعجزات في كل زمان ومكان.",
     "gallery.title": "لمحات من الخلود",
     "footer.text": "صنع بكل فخر من أجل مصر",
+    "by.text": "صنع الطالب معاذ محسن عبدالله",
+    "j6.text": "طالب في الصف السادس الابتدائي",
+    "school.text": "مدرسة الرحمن الخاصة",
+    "leader_school.text": "مديرة المدرسة شيرين عبد الجواد الديب",
     "lang.toggle": "EN",
   },
   en: {
@@ -52,7 +56,11 @@ const translations = {
     "people.desc":
       "In the smile of a farmer, the persistence of a scientist, and the determination of an athlete. Egypt's greatest wealth is its authentic people, the miracle-makers in every era.",
     "gallery.title": "Glimpses of Eternity",
-    "footer.text": "Made with pride for Egypt",
+    "footer.text": "Made With Pride For Egypt",
+    "by.text": "By Student Moaaz Mohsen Abdallah",
+    "j6.text": "Six'Th Grade Student",
+    "school.text": "Al Rahman Private School",
+    "leader_school.text": "School principal Sherine Abdel Gawad El Deeb",
     "lang.toggle": "عربي",
   },
 };
