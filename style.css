@@ -275,6 +275,10 @@ html[lang="en"] .hero-title { letter-spacing: -0.02em; }
   font-size: 1.1rem;
 }
 
+.site-footer .container .by{
+  margin-top: -6px;
+}
+
 /* ---------- Reveal-on-scroll ---------- */
 .reveal {
   opacity: 0;
